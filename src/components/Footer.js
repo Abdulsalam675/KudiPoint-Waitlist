@@ -2,9 +2,12 @@ import React, { memo, useEffect, useRef } from "react";
 import "./Footer.css";
 
 function Footer() {
-  const footerRef = useRef(null);
+  const footerContentRef = useRef(null); // Renamed to reflect targeting footer-content
 
   useEffect(() => {
+    const footerContent = footerContentRef.current;
+    if (!footerContent) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -18,14 +21,11 @@ function Footer() {
       { threshold: 0.1 }
     );
 
-    const currentRef = footerRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
+    observer.observe(footerContent);
 
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
+      if (footerContent) {
+        observer.unobserve(footerContent);
       }
     };
   }, []);
@@ -44,8 +44,8 @@ function Footer() {
   ];
 
   return (
-    <footer className="footer-container" ref={footerRef}>
-      <div className="footer-content">
+    <footer className="footer-container">
+      <div className="footer-content" ref={footerContentRef}>
         <h2 className="footer-title">Be the first to try Kudipoint</h2>
         <div className="social-links">
           {socialMedia.map(({ name, img, url }) => (

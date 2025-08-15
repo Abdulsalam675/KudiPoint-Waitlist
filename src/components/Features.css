@@ -25,13 +25,13 @@
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: 2.1rem;
   font-weight: 700;
   color: #111;
 }
 
 .section-subtitle {
-  font-size: 1rem;
+  font-size: 1.15rem;
   color: #555;
   margin-bottom: 40px;
 }
@@ -39,18 +39,18 @@
 .features-grid {
   display: flex;
   justify-content: space-evenly;
-  gap: 1.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
   margin-top: 4rem;
 }
 
 .feature-card {
   background: #fff;
-  padding: 25px 20px;
+  padding: 70px 20px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   flex: 1 1 300px;
-  max-width: 340px;
+  max-width: 350px;
   transition: transform 1s ease, box-shadow 1s ease;
   opacity: 0;
   transform: translateY(100px);
@@ -63,7 +63,7 @@
 }
 
 .feature-card:hover {
-  transform: scale(1.01);
+  transform: scale(1.02);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
 }
 
@@ -89,7 +89,7 @@
 }
 
 .feature-card p {
-  font-size: 0.95rem;
+  font-size: 0.97rem;
   color: #555;
   line-height: 1.5;
 }

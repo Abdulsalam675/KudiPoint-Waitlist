@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useRef, memo } from "react";
 import "./Hero.css";
+import toast, { Toaster } from "react-hot-toast";
+import { ClipLoader } from "react-spinners";
 
 function Hero() {
   const [isAnimated, setIsAnimated] = useState(false);
   const headerRef = useRef(null);
+  const [formData, setFormData] = useState({ name: "", email: "" });
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const header = headerRef.current;
@@ -30,6 +34,42 @@ function Hero() {
     };
   }, []);
 
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleJoinWaitlist = async (e) => {
+    e.preventDefault();
+
+    setLoading(true);
+
+    try {
+      const response = await fetch("https://kudipoint.ng/wait-list.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      const message = data.message || "Something went wrong";
+
+      if (data.status) {
+        toast.success(message);
+      } else {
+        toast.error(message);
+      }
+    } catch (error) {
+      toast.error("Failed to join waitlist. Please try again.");
+    } finally {
+      setLoading(false);
+      setFormData({ name: "", email: "" });
+    }
+  };
+
   return (
     <div className="container">
       <div className="logo-container">
@@ -46,10 +86,32 @@ function Hero() {
             Swap, send, and spend crypto or Naira with ease — join our waitlist
             and be the first to try it.
           </p>
-          <form>
-            <input type="text" name="name" placeholder="Name" required />
-            <input type="email" name="email" placeholder="Email" required />
-            <button type="submit">Join Waitlist</button>
+          <form onSubmit={handleJoinWaitlist}>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              placeholder="Name"
+              required
+              disabled={loading}
+            />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder="Email"
+              required
+              disabled={loading}
+            />
+            <button type="submit" disabled={loading}>
+              {loading ? (
+                <ClipLoader size={25} color="#fff" />
+              ) : (
+                "Join Waitlist"
+              )}
+            </button>
           </form>
         </header>
         <div className="preview">
@@ -60,6 +122,7 @@ function Hero() {
           />
         </div>
       </div>
+      <Toaster />
     </div>
   );
 }

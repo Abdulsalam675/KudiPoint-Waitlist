@@ -1,6 +1,15 @@
 .footer-container {
   width: 100%;
-  padding: 10px;
+  margin-top: 60px;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 100px;
+  overflow: hidden;
+}
+
+.footer-content {
+  width: 100%;
+  padding: 20px;
   background: #8f3db3;
   max-width: 1400px;
   color: white;
@@ -9,17 +18,15 @@
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
-}
-
-.footer-container.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.footer-content {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: auto;
   text-align: center;
+  position: relative;
+}
+
+.footer-content.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .footer-title {
