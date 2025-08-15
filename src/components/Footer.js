@@ -1,0 +1,63 @@
+import React, { memo, useEffect, useRef } from "react";
+import "./Footer.css";
+
+function Footer() {
+  const footerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+          } else {
+            entry.target.classList.remove("animate");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentRef = footerRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+
+  const socialMedia = [
+    {
+      name: "Facebook",
+      img: "/assets/facebook.png",
+      url: "https://www.facebook.com/profile.php?id=61553805782231",
+    },
+    {
+      name: "Instagram",
+      img: "/assets/instagram.png",
+      url: "https://www.instagram.com/official_kudipoint.ng?igsh=YzljYTk1ODg3Zg==",
+    },
+  ];
+
+  return (
+    <footer className="footer-container" ref={footerRef}>
+      <div className="footer-content">
+        <h2 className="footer-title">Be the first to try Kudipoint</h2>
+        <div className="social-links">
+          {socialMedia.map(({ name, img, url }) => (
+            <a href={url} target="_blank" rel="noopener noreferrer" key={name}>
+              <img src={img} alt={name} className="social-icon" />
+            </a>
+          ))}
+        </div>
+        <p className="footer-copy">© 2025 KudiPoint. All rights reserved.</p>
+      </div>
+    </footer>
+  );
+}
+
+export default memo(Footer);
