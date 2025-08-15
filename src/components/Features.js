@@ -18,16 +18,13 @@ function Features() {
             }
           });
         },
-        { threshold: 0.5 }
+        { threshold: 0.3 }
       );
       observer.observe(ref);
       return observer;
     };
 
-    // Observe title section
     const titleObserver = animateOnScroll(titleRef.current);
-
-    // Observe feature cards
     const cardObservers = cardRefs.current.map((ref) => animateOnScroll(ref));
 
     return () => {
@@ -75,9 +72,8 @@ function Features() {
               key={index}
             >
               <div className="icon-wrapper">
-                <img src={img} alt={title} />
+                <img src={`${process.env.PUBLIC_URL}${img}`} alt={title} />
               </div>
-              {/* Title + subtitle inside card */}
               <div className="card-text">
                 <h3>{title}</h3>
                 <p>{subTitle}</p>

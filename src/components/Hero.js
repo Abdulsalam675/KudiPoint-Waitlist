@@ -6,33 +6,38 @@ function Hero() {
   const headerRef = useRef(null);
 
   useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !isAnimated) {
             entry.target.classList.add("animate");
-            setIsAnimated(true); // Prevent re-animation
+            setIsAnimated(true);
           }
         });
       },
-      { threshold: 0.3, rootMargin: "0px" } // Trigger when 30% visible
+      { threshold: 0.3, rootMargin: "0px" }
     );
 
-    if (headerRef.current) {
-      observer.observe(headerRef.current);
-    }
+    observer.observe(header);
 
     return () => {
-      if (headerRef.current) {
-        observer.unobserve(headerRef.current);
+      if (header) {
+        observer.unobserve(header);
       }
     };
-  }, [isAnimated]);
+  }, []);
 
   return (
     <div className="container">
       <div className="logo-container">
-        <img src="/assets/logo.png" alt="KudiPoint Logo" className="logo" />
+        <img
+          src={`${process.env.PUBLIC_URL}/assets/logo.png`}
+          alt="KudiPoint Logo"
+          className="logo"
+        />
       </div>
       <div className="wrapper">
         <header className="header" ref={headerRef}>
@@ -48,7 +53,11 @@ function Hero() {
           </form>
         </header>
         <div className="preview">
-          <img src="/assets/mockup.png" alt="mockup" className="preview-img" />
+          <img
+            src={`${process.env.PUBLIC_URL}/assets/mockup.png`}
+            alt="mockup"
+            className="preview-img"
+          />
         </div>
       </div>
     </div>

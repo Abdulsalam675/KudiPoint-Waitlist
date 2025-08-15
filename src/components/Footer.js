@@ -50,7 +50,11 @@ function Footer() {
         <div className="social-links">
           {socialMedia.map(({ name, img, url }) => (
             <a href={url} target="_blank" rel="noopener noreferrer" key={name}>
-              <img src={img} alt={name} className="social-icon" />
+              <img
+                src={`${process.env.PUBLIC_URL}${img}`}
+                alt={name}
+                className="social-icon"
+              />
             </a>
           ))}
         </div>

@@ -14,7 +14,7 @@
 }
 
 .logo {
-  max-width: 130px;
+  max-width: 150px;
 }
 
 .wrapper {
@@ -34,7 +34,7 @@
   margin-top: 30px;
   max-width: 50%;
   opacity: 0;
-  transform: translateY(110px);
+  transform: translateY(120px);
   transition: opacity 1s ease, transform 1s ease;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .header h1 {
-  margin: 2px;
+  margin: 0px;
   font-size: 2.4rem;
   color: #111;
 }
@@ -75,19 +75,19 @@
 }
 
 .header input:focus {
-  border-color: #8e44ad;
+  border-color: #8f3db3;
   box-shadow: 0 0 3px rgba(142, 68, 173, 0.5);
 }
 
 .header button {
   padding: 1.1rem;
-  background: #8e44ad;
+  background: #8f3db3;
   color: #ffffff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.3s ease;
 }
 
 .header button:hover {
@@ -122,7 +122,7 @@
     max-width: 40%;
   }
   .preview-img {
-    max-width: 250px;
+    max-width: 270px;
   }
 }
 
@@ -148,7 +148,7 @@
   }
 
   .header h1 {
-    font-size: 28px;
+    font-size: 2.2rem;
   }
 
   .header p {
@@ -157,13 +157,13 @@
 
   .header form {
     width: 100%;
-    max-width: 300px;
+    max-width: 350px;
   }
 
   .header input,
   .header button {
-    padding: 0.9rem;
-    font-size: 14px;
+    padding: 1.1rem;
+    font-size: 1rem;
   }
 
   .preview {
@@ -182,15 +182,21 @@
   }
 
   .logo {
-    max-width: 100px;
+    max-width: 150px;
+  }
+
+  .header {
+    margin-top: 50px;
   }
 
   .header h1 {
-    font-size: 24px;
+    font-size: 2.1rem;
+    line-height: 37px;
+    margin-bottom: 10px;
   }
 
   .header p {
-    font-size: 14px;
+    font-size: 1.05rem;
   }
 
   .header form {
@@ -199,11 +205,11 @@
 
   .header input,
   .header button {
-    padding: 0.7rem;
-    font-size: 12px;
+    padding: 1.2rem 0.5rem;
+    font-size: 1rem;
   }
 
   .preview-img {
-    max-width: 200px;
+    max-width: 210px;
   }
 }
