@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/KudiPoint-Waitlist/static/css/main.041ac23b.css",
-    "main.js": "/KudiPoint-Waitlist/static/js/main.734c5002.js",
+    "main.js": "/KudiPoint-Waitlist/static/js/main.5ed001e5.js",
     "static/js/453.0a83b614.chunk.js": "/KudiPoint-Waitlist/static/js/453.0a83b614.chunk.js",
     "index.html": "/KudiPoint-Waitlist/index.html",
     "main.041ac23b.css.map": "/KudiPoint-Waitlist/static/css/main.041ac23b.css.map",
-    "main.734c5002.js.map": "/KudiPoint-Waitlist/static/js/main.734c5002.js.map",
+    "main.5ed001e5.js.map": "/KudiPoint-Waitlist/static/js/main.5ed001e5.js.map",
     "453.0a83b614.chunk.js.map": "/KudiPoint-Waitlist/static/js/453.0a83b614.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.041ac23b.css",
-    "static/js/main.734c5002.js"
+    "static/js/main.5ed001e5.js"
   ]
 }
